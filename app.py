@@ -23,6 +23,9 @@ def tasks():
         elif request.form.get('negative') == 'Negative':
             stream.negative
             stream.negative = not stream.negative
+        elif request.form.get('blue') == 'Blue':
+            stream.blue
+            stream.blue = not stream.blue
         elif request.form.get('stop') == 'Stop/Start':
             if (stream.switch == 1):
                 stream.switch = 0
