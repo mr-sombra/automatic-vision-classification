@@ -5,16 +5,55 @@
     <div class="row">
       <div class="col">
         <form action="{{ url_for('tasks') }}" method="post">
-          <input type="submit" value="Stop/Start" name="stop" />
-          <input type="submit" value="Grey" name="grey" />
-          <input type="submit" value="Negative" name="negative" />
-          <input type="submit" value="Blue" name="blue" />
-          <input type="submit" value="Red" name="red" />
+          <input
+            class="btn btn-outline-primary"
+            type="submit"
+            value="Stop/Start"
+            name="stop"
+            style="margin-right: 1rem"
+          />
+          <input
+            class="btn btn-outline-primary"
+            type="submit"
+            value="Grey"
+            name="grey"
+            style="margin-right: 1rem"
+          />
+          <input
+            class="btn btn-outline-primary"
+            type="submit"
+            value="Negative"
+            name="negative"
+            style="margin-right: 1rem"
+          />
+          <input
+            class="btn btn-outline-primary"
+            type="submit"
+            value="Blue"
+            name="blue"
+            style="margin-right: 1rem"
+          />
+          <input
+            class="btn btn-outline-primary"
+            type="submit"
+            value="Red"
+            name="red"
+            style="margin-right: 1rem"
+          />
+          <input
+            class="btn btn-outline-primary"
+            type="submit"
+            value="Yellow"
+            name="yellow"
+          />
         </form>
       </div>
     </div>
     <div class="col" style="text-align: center; height: auto">
-      <img src="{{ url_for('video_feed') }}" style="height: 80%" />
+      <img
+        src="{{ url_for('video_feed') }}"
+        style="margin-top: 1rem; height: 80%"
+      />
     </div>
     <ul
       class="list-group list-group-flush list-group-numbered"

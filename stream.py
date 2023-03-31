@@ -1,16 +1,18 @@
 import cv2 as cv
 import color_detection
 
-global switch, negative, grey, blue, red
+global switch, negative, grey, blue, red, yellow
 switch = 1
 negative = 0
 grey = 0
 blue = 0
 red = 0
+yellow = 0
 
 CAM_ID = 0
 
 cap = cv.VideoCapture(CAM_ID)
+
 
 def gen_frames():
     while True:
@@ -24,7 +26,9 @@ def gen_frames():
                 frame = color_detection.blue_detection(frame=frame)
             if red:
                 frame = color_detection.red_detection(frame=frame)
-                
+            if yellow:
+                frame = color_detection.yellow_detection(frame=frame)
+
             try:
                 ret, buffer = cv.imencode('.jpg', cv.flip(frame, 1))
                 frame = buffer.tobytes()

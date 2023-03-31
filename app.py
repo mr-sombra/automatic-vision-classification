@@ -1,7 +1,9 @@
 from flask import Flask, render_template, Response, request
 import stream
 
-app = Flask(__name__, template_folder='./templates', static_folder='./templates/static')
+app = Flask(__name__, template_folder='./templates',
+            static_folder='./templates/static')
+
 
 @app.route('/')
 def index():
@@ -11,6 +13,7 @@ def index():
 @app.route('/video_feed')
 def video_feed():
     return Response(stream.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
 
 @app.route('/video_stream')
 def video_stream():
@@ -33,6 +36,9 @@ def tasks():
         elif request.form.get('red') == 'Red':
             stream.red
             stream.red = not stream.red
+        elif request.form.get('yellow') == 'Yellow':
+            stream.yellow
+            stream.yellow = not stream.yellow
         elif request.form.get('stop') == 'Stop/Start':
             if (stream.switch == 1):
                 stream.switch = 0
