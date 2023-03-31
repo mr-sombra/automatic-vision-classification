@@ -34,17 +34,17 @@
             <span class="nav_logo-name">BBBootstrap</span>
           </a>
           <div class="nav_list">
-            <a href="#" class="nav_link active">
+            <a href="{{ url_for('index') }}" class="nav_link" data-target="index">
               <i class="bx bx-grid-alt nav_icon"></i>
               <span class="nav_name">Dashboard</span>
+            </a>
+            <a href="{{ url_for('video_stream') }}" class="nav_link" id="nav_video">
+              <i class="bx bx-video nav_icon"></i>
+              <span class="nav_name" value="Video">Video</span>
             </a>
             <a href="#" class="nav_link">
               <i class="bx bx-user nav_icon"></i>
               <span class="nav_name">Users</span>
-            </a>
-            <a href="#" class="nav_link">
-              <i class="bx bx-video nav_icon"></i>
-              <span class="nav_name">Video</span>
             </a>
             <a href="#" class="nav_link">
               <i class="bx bx-bookmark nav_icon"></i>

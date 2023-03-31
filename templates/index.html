@@ -1,58 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-<div class="row" style="text-align: center">
-  <div class="col">
-    <h1 style="float: none; text-align: center;">
-      CAMERA APP
-    </h1>
-    <div class="row">
-      <div class="col">
-        <form action="{{ url_for('tasks') }}" method="post">
-          <input type="submit" value="Stop/Start" name="stop" />
-          <input type="submit" value="Grey" name="grey" />
-          <input type="submit" value="Negative" name="negative" />
-          <input type="submit" value="Blue" name="blue" />
-        </form>
-      </div>
-    </div>
-    <div class="col" style="text-align: center; height: auto">
-      <img src="{{ url_for('video_feed') }}" style="height: 80%" />
-    </div>
-    <ul
-      class="list-group list-group-flush list-group-numbered"
-      style="text-align: left"
-    >
-      <li class="list-group-item">
-        <span class="badge">14</span>Cras justo odio
-      </li>
-      <li class="list-group-item">
-        <span class="badge">2</span>Dapibus ac facilisis in
-      </li>
-      <li class="list-group-item">
-        <span class="badge">1</span>Morbi leo risus
-      </li>
-    </ul>
-  </div>
+<div class="row" style="text-align: center;">
+  <h1 style="margin-top: 1rem;">Control Panel Automatic Classifier</h1>
+  <p>
+    This control panel allows you to interact with an automatic process of
+    pieces detection. Using computer vision you are allowed to detect and
+    clasify pieces by color, this HMI is what the operator will use to control
+    the process.
+  </p>
 </div>
-<!--
-<div class="row gap-1 justify-content-center">
-  <h2 class="text-light">CAMERA APP</h2>
-  <div class="col">
-    <form action="{{ url_for('tasks') }}" method="post">
-      <input type="submit" value="Start/Stop" name="stop" />
-      <input type="submit" value="Grey" name="grey" />
-      <input type="submit" value="Negative" name="negative" />
-      <input type="submit" value="Blue" name="blue" />
-    </form>
-  </div>
-  <div class="row justify-content-center vw-100 h-75">
-    <img class="ratio mw-100" src="{{ url_for('video_feed') }}" alt="video streaming" />
-  </div>
-  <h3 class="text-light">Instructions:</h3>
-  <ol class="list-group list-group-flush list-group-numbered list-group-item-primary col-8">
-    <li class="list-group-item">Stop/Start--Toggle between stop or start live streaming</li>
-    <li class="list-group-item">Grey--Toggle between grayscale and RGB output</li>
-    <li class="list-group-item">Negative--Toggle between negative and RGB output</li>
-  </ol>
-</div>
--->
 {% endblock %}

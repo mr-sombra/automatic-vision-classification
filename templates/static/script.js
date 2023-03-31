@@ -23,15 +23,29 @@ document.addEventListener("DOMContentLoaded", function (event) {
   showNavbar("header-toggle", "nav-bar", "body-pd", "header");
 
   /*===== LINK ACTIVE =====*/
+  // Código de JavaScript en la página de transmisión de video
+
   const linkColor = document.querySelectorAll(".nav_link");
+  const videoLink = document.getElementById("nav_video");
 
   function colorLink() {
-    if (linkColor) {
-      linkColor.forEach((l) => l.classList.remove("active"));
-      this.classList.add("active");
-    }
+    linkColor.forEach((l) => {
+      if (l.href === window.location.href) {
+        l.classList.add("active");
+      } else if (window.location.pathname.includes("requests")) {
+        videoLink.classList.add("active");
+      }
+      else {
+        l.classList.remove("active");
+      }
+    });
   }
-  linkColor.forEach((l) => l.addEventListener("click", colorLink));
+
+  colorLink();
+
+  linkColor.forEach((l) => {
+    l.addEventListener("click", colorLink);
+  });
 
   // Your code to run since DOM is loaded and ready
 });

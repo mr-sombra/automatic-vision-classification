@@ -1,11 +1,12 @@
 import cv2 as cv
 import color_detection
 
-global switch, negative, grey, blue
+global switch, negative, grey, blue, red
 switch = 1
 negative = 0
 grey = 0
 blue = 0
+red = 0
 
 CAM_ID = 0
 
@@ -21,6 +22,8 @@ def gen_frames():
                 frame = cv.bitwise_not(frame)
             if blue:
                 frame = color_detection.blue_detection(frame=frame)
+            if red:
+                frame = color_detection.red_detection(frame=frame)
                 
             try:
                 ret, buffer = cv.imencode('.jpg', cv.flip(frame, 1))

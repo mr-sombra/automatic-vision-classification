@@ -12,6 +12,10 @@ def index():
 def video_feed():
     return Response(stream.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route('/video_stream')
+def video_stream():
+    return render_template('video-stream.html')
+
 
 @app.route('/requests', methods=['POST', 'GET'])
 def tasks():
@@ -26,6 +30,9 @@ def tasks():
         elif request.form.get('blue') == 'Blue':
             stream.blue
             stream.blue = not stream.blue
+        elif request.form.get('red') == 'Red':
+            stream.red
+            stream.red = not stream.red
         elif request.form.get('stop') == 'Stop/Start':
             if (stream.switch == 1):
                 stream.switch = 0
@@ -36,12 +43,12 @@ def tasks():
                 stream.switch = 1
 
     elif request.method == 'GET':
-        return render_template('index.html')
-    return render_template('index.html')
+        return render_template('video-stream.html')
+    return render_template('video-stream.html')
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, threaded=True)
 
 stream.cap.release()
 stream.cv.destroyAllWindows()
