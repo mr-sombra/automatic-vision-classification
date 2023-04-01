@@ -47,28 +47,11 @@
             name="yellow"
           />
         </form>
+        <div class="col bg-danger">
+          <img src="{{ url_for('video_feed') }}" />
+        </div>
       </div>
     </div>
-    <div class="col" style="text-align: center; height: auto">
-      <img
-        src="{{ url_for('video_feed') }}"
-        style="margin-top: 1rem; height: 80%"
-      />
-    </div>
-    <ul
-      class="list-group list-group-flush list-group-numbered"
-      style="text-align: left"
-    >
-      <li class="list-group-item">
-        <span class="badge">14</span>Cras justo odio
-      </li>
-      <li class="list-group-item">
-        <span class="badge">2</span>Dapibus ac facilisis in
-      </li>
-      <li class="list-group-item">
-        <span class="badge">1</span>Morbi leo risus
-      </li>
-    </ul>
   </div>
 </div>
 {% endblock %}
