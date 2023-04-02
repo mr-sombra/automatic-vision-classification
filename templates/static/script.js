@@ -34,8 +34,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         l.classList.add("active");
       } else if (window.location.pathname.includes("requests")) {
         videoLink.classList.add("active");
-      }
-      else {
+      } else {
         l.classList.remove("active");
       }
     });
