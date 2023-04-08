@@ -1,5 +1,6 @@
-from flask import Flask, render_template, Response, request
+from flask import Flask, render_template, Response, request, jsonify
 import stream
+import scan
 
 app = Flask(__name__, template_folder='./templates',
             static_folder='./templates/static')
@@ -18,6 +19,20 @@ def video_feed():
 @app.route('/video_stream')
 def video_stream():
     return render_template('video-stream.html')
+
+
+@app.route('/scan_network', methods=['POST'])
+def scan_network():
+    # Llamar a la función scan_network para obtener el diccionario
+    network_dict = scan.scan_network()
+
+    # Devolver el diccionario como una respuesta en formato JSON
+    return jsonify(network_dict)
+
+
+@app.route('/video_detection')
+def video_detection():
+    return render_template('video-detection.html')
 
 
 @app.route('/requests', methods=['POST', 'GET'])

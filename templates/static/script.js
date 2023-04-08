@@ -48,3 +48,60 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   // Your code to run since DOM is loaded and ready
 });
+
+// Obtener el botón por su id
+const scanNetworkBtn = document.querySelector("#scan-network-btn");
+const spinner = document.createElement("span");
+
+// Escuchar el evento click del botón
+scanNetworkBtn.addEventListener("click", async () => {
+  try {
+    // Agregar el span con el ícono de carga al botón
+
+    scanNetworkBtn.innerHTML = "Scan Network...";
+    spinner.classList.add(
+      "spinner-border",
+      "spinner-border-sm",
+      "float-start",
+      "m-1"
+    );
+    spinner.setAttribute("role", "status");
+    spinner.setAttribute("aria-hidden", "true");
+    scanNetworkBtn.appendChild(spinner);
+
+    // Deshabilitar el botón
+    scanNetworkBtn.setAttribute("disabled", true);
+
+    // Realizar una petición POST al servidor Flask
+    const response = await fetch("/scan_network", {
+      method: "POST",
+    });
+
+    // Verificar si la respuesta del servidor fue exitosa
+    if (response.ok) {
+      // Actualizar el contenido del dropdown con las claves del diccionario
+      const data = await response.json();
+      const dropdownMenu = document.querySelector("#my-dropdown-menu");
+
+      // Eliminar los items actuales del dropdown
+      dropdownMenu.innerHTML = "";
+
+      // Agregar los nuevos items con las claves del diccionario
+      Object.keys(data).forEach((key) => {
+        const dropdownItem = document.createElement("a");
+        dropdownItem.classList.add("dropdown-item");
+        dropdownItem.textContent = key;
+        dropdownMenu.appendChild(dropdownItem);
+      });
+    } else {
+      console.error("Error al obtener la lista de dispositivos.");
+    }
+  } catch (error) {
+    console.error(`Error al realizar la petición: ${error}`);
+  } finally {
+    // Eliminar el span con el ícono de carga y habilitar el botón
+    scanNetworkBtn.removeChild(spinner);
+    scanNetworkBtn.innerHTML = "Scan Network";
+    scanNetworkBtn.removeAttribute("disabled");
+  }
+});
