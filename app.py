@@ -1,10 +1,12 @@
 from flask import Flask, render_template, Response, request, jsonify
 import stream
 import scan
+import connect
 
 app = Flask(__name__, template_folder='./templates',
             static_folder='./templates/static')
 
+deviceIpConnection = ""
 
 @app.route('/')
 def index():
@@ -29,6 +31,21 @@ def scan_network():
     # Devolver el diccionario como una respuesta en formato JSON
     return jsonify(network_dict)
 
+
+@app.route('/get_device_ip', methods=['POST'])
+def get_device_ip():
+    data = request.get_json()
+    deviceIp = data["deviceIp"]
+    deviceIpConnection = deviceIp
+    return deviceIpConnection
+
+
+@app.route('/connect_device', methods=['POST'])
+def connect_device():
+    # Establecer la sesion con el disposotivo
+    connect.connection(deviceIpConnection)
+    return "Session Established!"
+    
 
 @app.route('/video_detection')
 def video_detection():
