@@ -1,6 +1,7 @@
 from flask import Flask, render_template, Response, request, jsonify
 import stream
 import scan
+import serialPorts
 
 app = Flask(__name__, template_folder='./templates',
             static_folder='./templates/static')
@@ -28,6 +29,11 @@ def scan_network():
 
     # Devolver el diccionario como una respuesta en formato JSON
     return jsonify(network_dict)
+
+@app.route('/scan_port', methods=['POST'])
+def scan_port():
+    port_list = serialPorts.get_serial_ports()
+    return jsonify(port_list)
 
 
 @app.route('/video_detection')

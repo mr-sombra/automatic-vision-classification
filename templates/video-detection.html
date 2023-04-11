@@ -29,5 +29,44 @@
       </div>
     </div>
   </div>
+  <div class="row bg-info" style="margin: 0;">
+    <div class="col" style="padding: 1rem;">
+      <button
+        class="btn btn-secondary"
+        id="scan-port-btn"
+      >
+        Scan port
+      </button>
+    </div>
+    <div class="col" style="padding: 1rem;">
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="drpPortMenu"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Serial port
+        </button>
+        <div 
+          class="dropdown-menu"
+          aria-labelledby="drpPortMenu"
+          id="drp-port-menu"
+        >
+          <!-- Here will be the COM devices -->
+        </div>
+      </div>
+    </div>
+    <div class="col" style="padding: 1rem;">
+      <button
+        class="btn btn-secondary"
+        id="connectPortBtn"
+      >
+        Connect
+      </button>
+    </div>
+  </div>
 </div>
 {% endblock %}
