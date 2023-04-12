@@ -1,44 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 <div class="row bg-warning">
   <h2 style="text-align: center">Automatic Detection</h2>
-  <div class="row">
-    <div class="col">
-      <button id="scan-network-btn" class="btn btn-primary">
-        Scan Network
-      </button>
+  <div class="row bg-info" style="margin: 0">
+    <div class="col" style="padding: 1rem">
+      <button class="btn btn-secondary" id="scan-port-btn">Scan port</button>
     </div>
-    <div class="col">
-      <div class="dropdown">
-        <button
-          class="btn btn-secondary dropdown-toggle"
-          type="button"
-          id="dropdownMenuButton"
-          data-bs-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Dispositivos disponibles
-        </button>
-        <div
-          class="dropdown-menu"
-          aria-labelledby="dropdownMenuButton"
-          id="my-dropdown-menu"
-        >
-          <!-- Aquí se agregarán los elementos del dropdown -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row bg-info" style="margin: 0;">
-    <div class="col" style="padding: 1rem;">
-      <button
-        class="btn btn-secondary"
-        id="scan-port-btn"
-      >
-        Scan port
-      </button>
-    </div>
-    <div class="col" style="padding: 1rem;">
+    <div class="col" style="padding: 1rem">
       <div class="dropdown">
         <button
           class="btn btn-secondary dropdown-toggle"
@@ -47,25 +14,22 @@
           data-bs-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
+          style="width: 17vw"
         >
-          Serial port
+          <span id="drp-port-btn-txt">Serial port</span>
         </button>
-        <div 
+        <div
           class="dropdown-menu"
           aria-labelledby="drpPortMenu"
           id="drp-port-menu"
+          style="width: 15vw"
         >
           <!-- Here will be the COM devices -->
         </div>
       </div>
     </div>
-    <div class="col" style="padding: 1rem;">
-      <button
-        class="btn btn-secondary"
-        id="connectPortBtn"
-      >
-        Connect
-      </button>
+    <div class="col" style="padding: 1rem">
+      <button class="btn btn-secondary" id="connectPortBtn">Connect</button>
     </div>
   </div>
 </div>
